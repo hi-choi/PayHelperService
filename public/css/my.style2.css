@@ -1,0 +1,185 @@
+.main{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	max-height : 730px;
+}
+.main_item1{
+	grid-column:1/2;
+
+}
+.main_item2{
+	grid-column:2/3;	
+
+}
+.main_item3{
+	grid-column:3/4;
+}
+.coin{
+
+	height: 500px;
+	width : 400px;
+	padding-top : 50px;
+	padding-bottom : 30px;
+	border-radius : 10%;	
+	position : relative;
+	top : 0;
+	bottom : 0;
+	left : 0;
+	right : 0;
+	margin : auto;	
+	border : 1px solid;
+	margin-top : 15%;
+
+}
+.coin_left{
+
+	height: 500px;
+	width : 400px;
+	padding-top : 50px;
+	padding-bottom : 30px;
+	border-radius : 10%;	
+	position : relative;
+	top : 0;
+	bottom : 0;
+	margin : auto;
+	margin-top : 15%;
+	border : 1px solid;
+
+}
+
+.coin_right{
+
+	height: 500px;
+	width : 400px;
+	padding-top : 50px;
+	padding-bottom : 30px;
+	border-radius : 10%;	
+	position : relatvie;
+	top : 0;
+	bottom : 0;
+	margin : auto;	
+	border : 1px solid;
+	margin-top : 15%;
+
+}
+input[type="text"]{
+	border : 2px sold;
+}
+
+input[type="text"]:hover{
+	background : #FFDAB9;
+}
+
+
+.coin_comm{
+	display:inline-block;
+	width:50px;
+	height:30px;
+	font-size:15px;
+	text-align:center;
+	color:#fff;
+	background:#754F44;
+	border-radius : 10px;
+}
+	
+.coin_comm:before{
+	display:inline-block;
+	vertical-align:middle;
+	content:'매도';
+	border-radius : 10px;
+}
+
+.coin_comm2{
+	display:inline-block;
+	width:50px;
+	height:30px;
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:15px;
+	text-align:center;
+	color:#fff;
+	background:#754F44;
+	border-radius : 10px;
+}
+	
+.coin_comm2:before{
+	display:inline-block;
+	vertical-align:middle;
+	content:'매수';
+	border-radius : 10px;
+}
+
+
+.coinpay_comm{
+	display:block;
+	width:150px;
+	height:30px;
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:15px;
+	text-align:center;
+	color:#fff;
+	background:#754F44;
+	border-radius : 10px;
+}
+	
+.coinpay_comm:before{
+	display:inline-block;
+	vertical-align:middle;
+	content:'이체';
+	border-radius : 10px;
+}
+.getBtn{
+	display:inline-block;
+	height : 30px;
+	width : 150px;
+	font-size:15px;
+	color:#ffffff;
+	background:#754F44;
+	border-radius : 10px;
+	margin-bottom : 30px;
+	border-radius : 10px;
+
+}
+	
+.getBtn:before{
+
+	display:inline-block;
+	vertical-align:middle;
+	border-radius : 10px;
+
+}
+
+.getBtn2{
+	display:inline-block;
+	height : 30px;
+	width : 150px;
+	font-size:15px;
+	margin-left:10px;
+	margin-bottom : 10px;
+	color:#ffffff;
+	background:#754F44;
+	border-radius : 10px;
+
+}
+	
+.getBtn2:before{
+
+	display:inline-block;
+	vertical-align:middle;
+
+}
+
+.infor_block{
+	position : relative;
+	width : 300px;
+	height : 120px;
+	margin-top : 15px;
+	margin-bottom : 15px;
+	padding-top : 5px;
+	padding-left : 10px;
+	background-color : #F2F2F2;
+	display : block;
+	text-align : left;
+	border-radius : 10px;
+}

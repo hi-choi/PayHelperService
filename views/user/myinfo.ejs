@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MyInfo</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/my.style.css">
+    <link rel="stylesheet" type="text/css" href="/css/myinfor_style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+
+		main {
+		position:relative;
+		margin: 100px
+		min-height: 430px;	
+		}		
+	</style>
+	
+</head>
+
+<body>
+<%# ------------------------- header 영역 시작 ------------------------%>
+	<header>
+	<div class="header-container">
+	<div class="header1">
+	<div class="header_item1"></div>
+		
+	<div class="header_item2">
+	<% if(!email) { %>
+	<form name="paging5">		
+            <a href="javascript:goPage5();"><img src="/img/content/img_login_kor.png" weight="70px" height="30px"></a>
+    </form>   
+    <% } else { %>    
+	<form name="paging7">
+           <a href="javascript:goPage7();"><img src="/img/content/img_logout_kor.png" weight="70px" height="30px"></a>
+    </form>   
+    <% } %>
+    </div>
+    
+	<div id="header_item3">
+	<% if(!email) { %>
+	<form name="paging6">		
+            <a href="javascript:goPage6();"><img src="/img/content/img_signup_kor.png" weight="100px" height="30px"></a>
+    </form>    
+    <% } else { %>    
+	<form name="paging8">
+           <a href="javascript:goPage8();"><img src="/img/content/img_myinfor_kor.png" weight="100px" height="30px"></a>
+    </form>  
+    <% } %>
+	</div>
+	
+	
+	</div>
+	
+	
+	<div class="header2">
+	 <form name="paging0">
+            <a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png" margin-tom="-10px"></a>
+            <p>
+        </form>
+
+	</div>
+	</div>
+	</header>
+
+	
+<%# ------------------------- header 영역 끝 ------------------------%>
+
+<%# ------------------------- main 영역 시작 ------------------------%>
+	<main>
+	<div class="main_container">
+		<div class="main1">
+    		<% if(!email) { %>
+    	<ul>
+        	<form name="paging1">
+           		 <li><a href="javascript:goPage1();">가이드</a></li>
+        	</form>
+        	<form name="paging2">
+            	<li><a href="javascript:goPage2();">조회</a></li>
+        	</form>
+        	<form name="paging3">
+            	<li><a href="javascript:goPage3();">환전</a></li>
+       		 </form>
+       		<form name="paging4">
+            	<li><a href="javascript:goPage4();">이체</a></li>
+        	</form>
+   		</ul>
+
+    <% } else { %>
+    <ul>
+        <form name="paging1">
+            <li><a href="javascript:goPage1();">가이드</a></li>
+        </form>
+        <form name="paging2">
+            <li><a href="javascript:goPage2();">조회</a></li>
+        </form>
+        <form name="paging3">
+            <li><a href="javascript:goPage3();">환전</a></li>
+        </form>
+        <form name="paging4">
+            <li><a href="javascript:goPage4();">이체</a></li>
+        </form>
+    </ul>
+
+ <% } %>
+ 	</div>
+
+	<div class="main2">
+		<div class="main_item1"><br>
+
+		</div>
+		
+		<div class="main_item2">
+		<div class="infor_block2"> <font size=5> 내정보 </font> </div>
+		<div class="infor_block3"> <font size=5> 가상화폐 key 등록 </font></div>
+		<div class="infor_block4"> <font size=5> 원화 토큰 등록 </font> </div>
+		<div class="infor_block">
+			<center>
+			<br>
+      		  	<!--<h4><font size=4>가상화폐 key를 등록하고 <br> 가상화폐 거래를 시작해보세요.</font></h4>-->
+      		  	<a href="#"><img src="/img/content/circle.png" onclick="swal('코빗사이트에서 받은 두 개의 key를 최초 1회만 등록하시면 됩니다. 만약 key가 없으시다면 먼저 key를 발급받아주세요. 아래의 korbit 사이트 이동을 사용하시면 됩니다.')" class="circle"></a><br>
+      		  	<font size=4>가상화폐 key를 등록하고<br> 가상화폐 거래를 시작해보세요.</font>
+        		<form action="/users/coinGetAccessToken" method="get">
+            		<button id="getBtn" input type="submit" class="getBtn" value="등록"></button>
+       			</form>
+       		</center>
+       			  <% if(typeof flag != "undefined") { %>
+        				<script>
+         				 swal("access_token 발급 완료")
+       			 		</script>
+   				 <% } %>
+   		     </div>
+		<div class="infor_block1">
+			 <center>
+			 <br>
+        		<!--<h4><font size=4>원화 토큰 등록을 등록하고<br> 원화 거래를 시작해보세요.</font></h4>-->
+        		<a href="#"><img src="/img/content/circle.png" onclick="swal('금융결제원에서 받은 원화 토큰을 최초 1회만 등록하시면 됩니다.')" class="circle"></a><br>
+                <font size=4>원화 토큰을 등록하고<br> 원화 거래를 시작해보세요.</font>
+        		<button id="wonGetAccessToken" type="button" class="getBtn2" value="등록"></button>
+        		
+        	</center>
+			</div>
+
+    	   	<div class="infor_block5"><font size=5>Korbit 사이트 이동</font></div>
+    	   	<div class="infor_block6">
+			 <center>
+			 <br>
+			   <a href="#"><img src="/img/content/circle.png" onclick="swal('코빗사이트에서 key를 발급받으신 후 위쪽의 가상화폐 토큰 등록을 통해 토큰을 등록해주세요. 자세한 등록 방법은 가이드 메뉴를 참조해주세요.')" class="circle"></a><br>
+        		<font size=4>보유하고 계신 가상화폐 key가 없으시다면 <br>korbit 사이트에 이동해서 Acesskey와 Secretkey를 발급받으세요.</font><br>
+        		<input type="button" class="getBtn2" value="이동" onclick="window.open('https://www.korbit.co.kr/')" ></button><br>
+        		
+        	</center>
+			</div>
+		</div>
+		<div class="main_item3"></div>
+  	</div>
+  	</div>
+  	</main>
+
+<%# ----------------------main영역 끝 ------------------------ %>   
+<%# ----------------------footer영역 시작 ------------------------ %>
+    <footer class="footer">
+	<img src="/img/content/img_payhelperbig.png"width="100px"height="30px">
+	<img src="/img/content/img_producer.png">
+	</footer>
+<%# ----------------------footer영역 끝 ------------------------ %>
+
+
+   
+
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage1() {
+            var f = document.paging1;
+            f.action = "/users/aboutPayHelper"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage2() {
+            var f = document.paging2;
+            f.action = "/users/lookup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage3() {
+            var f = document.paging3;
+            f.action = "/users/exchange"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage4() {
+            var f = document.paging4;
+            f.action = "/users/payment";
+            f.method = "get";
+            f.submit();
+        }
+        function goPage5() {
+            var f = document.paging5;
+            f.action = "/users/login"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage6() {
+            var f = document.paging6;
+            f.action = "/users/signup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage7() {
+            var f = document.paging7;
+            f.action = "/users/logout"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage8() {
+            var f = document.paging8;
+            f.action = "/users/myinfo"
+            f.method = "get"
+            f.submit();
+        }
+
+        $("#wonGetAccessToken").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/users/wonGetAccessTokenCheck",
+                data: {},
+                success: function (data) {
+                    if(data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                        {button:"확인",}).then((result)=>{if(result){
+                        goPage5();}})
+                    } else if(data == 2) {
+                        swal("Warning", "코인 지갑을 사용하시려면 access_token을 발급받으세요.",
+                        {button:"확인",}).then((result)=>{if(result){
+                        goPage8();}})
+                    } else if(data == 3) {
+                        swal("Warning", "인증 화면으로 이동합니다.",
+                        {button:"확인",}).then((result)=>{if(result){
+                            var tmpWindow = window.open("about:blank");
+                            tmpWindow.location = "https://testapi.openbanking.or.kr/oauth/2.0/authorize?response_type=code&client_id=Cmah2jeXP3QU4h1l4yLDYvMU22RWMU4Et0obKyUq&redirect_uri=http://localhost:3000/users/wonGetAccessToken&scope=login inquiry transfer&state=12345678901234567890123456789012&auth_type=0";
+                        }})
+                    } else {
+                        //alert(JSON.stringify(data))
+                        alert(data);
+                    }
+                }
+            })
+        })
+        
+
+              
+    </script>
+
+
+</body>
+
+</html>

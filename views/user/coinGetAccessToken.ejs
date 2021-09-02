@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>coinGetAccessToken</title>
+    <link rel="stylesheet" type="text/css" href="/css/coinGetAccessToken_style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <% if(typeof flag != "undefined") { %>
+        <script>
+            swal("<%= flag %>")
+        </script>
+    <% } %>
+
+	<div class="coinGet">
+    <center>
+        <form name="paging0">
+            <a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png" weight="200px" height="100px"></a><br>
+        </form>
+
+        <form action="/users/coinGetAccessToken" method="post">
+            <h4><font size="5">가상화폐 토큰받기</h4>
+            <!-- <input type="email" name="email" placeholder="E-mail"><br>
+            <input type="text" name="clientId" placeholder="API key"><br>
+            <input type="password" name="clientSecret" placeholder="API key password"><br><br> -->
+            <input type="password" name="key" placeholder="password"style="height:25px;"><br><br>
+            <button id="coinGetBtn" input type="submit" class="coinGetAccessToken" value="암호화폐토큰받기"></button><br>
+        </form>
+        <br><br>
+        <hr size="1px" width="300px" left="50%" right"50%" noshade>
+		<img src="/img/content/img_producer.png" width="300px height="150px">	
+    </center>
+
+	</div>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
+    <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+    </script>
+</body>
+
+</html>

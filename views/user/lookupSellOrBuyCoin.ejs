@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>lookupSellOrBuyCoin</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/cancelCoin_style.css">
+</head>
+
+<body>
+<body>
+
+	<div class="cancel">
+    <center>
+        <form name="paging0">
+            <a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png" weight="200px" height="100px"></a><br>
+        </form>
+
+        <form action="/users/lookupSellOrBuyCoin" method="post">
+            <h4 style="margin-bottom:5px;"><font size="5">미체결 내역 조회</h4>
+            <font size="2" color="#6E6E6E"</font>조회하고 싶은 화폐를 선택해주세요.<br>
+            <select name="currency_pair" id="currency_pair" style="width:100px; height:30px; margin-top : 20px;">
+                <option value="zil_krw">질리카</option>
+                <option value="trx_krw">트론</option>
+            </select>
+            <button id="btn_cancel" input type="submit" class="cancel_comm" value="미체결내역조회"></button>
+            <div class="infor_block">미체결 상태에 있는 거래 내역을 확인하신 후 체결을 취소하실 수 있습니다. <br><br>현재 조회가능한 화폐의 종류는 ZIL, TRX입니다.</div>
+            
+            
+        </form>
+         
+        <hr size="1px" width="300px" left="50%" right"50%" noshade>
+		<img src="/img/content/img_producer.png" width="300px height="150px">
+    </center>
+	</div>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script>
+        
+    </script>
+
+    <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+    </script>
+</body>
+
+</html>

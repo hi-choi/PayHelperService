@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>payCoin</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/my.style2.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+
+        }
+
+        th {
+            text-align: center;
+            height: 40px;
+            background-color: #F2F2F2;
+
+        }
+
+        tr {
+            background-color: white;
+            height: 30px;
+
+        }
+
+        td {
+            background-color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="paging1">
+    </form>
+    <form name="paging2">
+    </form>
+    <form name="paging3">
+    </form>
+    <form name="paging4">
+    </form>
+    <form name="paging5">
+    </form>
+    <form name="paging6">
+    </form>
+    <form name="paging7">
+    </form>
+    <form name="paging8">
+    </form>
+   
+    <div class="main">
+        <div class="main_item1">
+
+            <div class="coin_left">
+
+                <center>
+                    <h4>
+                        <font size=5> 보유량 조회</font>
+                    </h4>
+
+                    <br>
+
+                    <button input type="submit" class="getBtn" id="johwe">가상화폐 조회</button>
+                    <button input type="submit" class="getBtn2" id="johwe2">계좌 조회</button><br>
+
+                    <table id='tableCoin' class="tableCoin" border="1" width="300px">
+                        <th> 가상화폐 </th>
+                        <th> 보유금액 </th>
+                        <tr>
+                            <td width="30%"> ZIL </td>
+                            <td width="70%"> </td>
+
+                        </tr>
+                        <tr>
+                            <td width="30%"> TRX </td>
+                            <td width="70%"> </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table id='tableWon' class="tableWon" border="1" width="300px">
+                        <th> 원화 </th>
+                        <th> 보유금액 </th>
+                        <tr>
+                            <td width="30%" text-align="center"> 신한 </td>
+                            <td width="70%"> </td>
+                        </tr>
+                        <tr>
+                            <td width="30%" text-align="center"> 국민 </td>
+                            <td width="70%"> </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+        </div>
+        <div class="main_item2">
+        
+        
+            <div class="coin">
+             <center>
+        <form name="paging0">
+            <a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png" weight="200px"
+                    height="100px"></a><br>
+        </form>
+    </center>
+                <center>
+
+                    <form action="/users/payCoin" method="post">
+                        <h4>
+                            <font size="5">가상화폐 이체
+                        </h4>
+                        <select name="cryptocurrency" style="min-width:130px; margin-bottom:15px;">
+                            <option value="zil">질리카</option>
+                            <option value="trx">트론</option>
+                        </select><br>
+                        <input type="text" name="amount" placeholder="입금할 코인 수량"
+                            style="height:30px; margin-bottom:10px;"><br>
+                        <input type="text" name="address" placeholder="입금할 코인 주소" style="height:30px;"><br><br>
+                        <button id="btn_coinpay" input type="submit" class="coinpay_comm"
+                            value="가상화폐이체"></button><br><br>
+                    </form>
+
+                    <hr size="1px" width="300px" left="50%" right"50%" noshade>
+                    <img src="/img/content/img_producer.png">
+
+                </center>
+            </div>
+        </div>
+        <div class="main_item3">
+            <div class="coin_right">
+                <center>
+                    <h4>
+                        <font size=5> 안내사항</font>
+                    </h4>
+                    <div class="infor_block">
+                        <font size=2">현재 거래하실 수 있는 화폐의 종류는 ZIL, TRX입니다.
+입금할 가상화폐를 선택한 후 수량과 주소를 입력해주세요.</font>
+                    </div>
+            </div>
+            </center>
+        </div>
+    </div>
+
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script>
+        // 인증 토큰 갖고 오는 거 구현해야 됨
+        $("#johwe2").click(function () {
+            var tableWon = document.getElementById("tableWon");
+            $.ajax({
+                url: '/users/lookup',
+                type: 'POST',
+                data: {},
+                success: function (data) {
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "계좌를 조회하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else {
+                        // swal(JSON.stringify(data))
+                        $.ajax({
+                            type: "POST",
+                            url: "/users/lookup_coin",
+                            data: {},
+                            success: function (data) {
+
+                                tableWon.rows[1].cells[1].innerHTML = data.krw;
+                            }
+                        })
+
+                        tableWon.rows[2].cells[1].innerHTML = data//JSON.stringify(data);
+                    }
+                }
+            })
+        });
+        $("#johwe").click(function () {
+            var tableCoin = document.getElementById("tableCoin");
+            $.ajax({
+                type: "POST",
+                url: "/users/lookup_coin",
+                data: {},
+                success: function (data) {
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "암호화폐를 조회하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else {
+                        //swal(JSON.stringify(data))
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/users/lookup_coin",
+                            data: {},
+                            success: function (data) {
+                                // var jArray = new Array();
+                                // jArray.add();
+                                console.log("모든 토큰: " + JSON.stringify(data));
+                                // var aa = JSON.parse(data);
+                                // var bb = JSON.parse
+                                tableCoin.rows[1].cells[1].innerHTML = data.zil;
+                            }
+                        })
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/users/lookup_coin",
+                            data: {},
+                            success: function (data) {
+
+                                tableCoin.rows[2].cells[1].innerHTML = data.trx;
+                            }
+                        })
+
+                    }
+                }
+            })
+        });
+    </script>
+    <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage1() {
+            var f = document.paging1;
+            f.action = "/users/aboutPayHelper"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage2() {
+            var f = document.paging2;
+            f.action = "/users/lookup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage3() {
+            var f = document.paging3;
+            f.action = "/users/exchange"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage4() {
+            var f = document.paging4;
+            f.action = "/users/payment";
+            f.method = "get";
+            f.submit();
+        }
+        function goPage5() {
+            var f = document.paging5;
+            f.action = "/users/login"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage6() {
+            var f = document.paging6;
+            f.action = "/users/signup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage7() {
+            var f = document.paging7;
+            f.action = "/users/logout"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage8() {
+            var f = document.paging8;
+            f.action = "/users/myinfo"
+            f.method = "get"
+            f.submit();
+        }
+    </script>
+</body>
+
+</html>

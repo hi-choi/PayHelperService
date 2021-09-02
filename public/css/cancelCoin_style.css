@@ -1,0 +1,51 @@
+.cancel{
+
+	height: 450px;
+	width : 400px;
+	padding-top : 50px;
+	padding-bottom : 30px;
+	border-radius : 10%;	
+	position : absolute;
+	top : 0;
+	bottom : 0;
+	left : 0;
+	right : 0;
+	margin : auto;	
+	border : 1px solid;
+}
+
+
+
+.cancel_comm{
+	display:inline-block;
+	width:50px;
+	height:25px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:20px;
+	font-size:12px;
+	text-align:center;
+	color:#fff;
+	background:#754F44;
+	border-radius : 10px;
+}
+	
+.cancel_comm:before{
+	display:inline-block;
+	vertical-align:middle;
+	content:'조회';
+	border-radius : 10px;
+}
+.infor_block{
+	position : relative;
+	width : 300px;
+	height : 100px;
+	margin-top : 15px;
+	margin-bottom : 15px;
+	padding-top : 15px;
+	padding-left : 10px;
+	background-color : #F2F2F2;
+	display : block;
+	text-align : left;
+	border-radius : 10px;
+}

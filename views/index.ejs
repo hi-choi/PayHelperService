@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AboutPayHelper</title>
+    <link rel="stylesheet" type="text/css" href="/css/my.style.css">
+    <link rel="stylesheet" type="text/css" href="/css/index_style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        main {
+            position: relative;
+            margin: 100px; min-height: 430px;
+        }
+    </style>
+</head>
+
+<body>
+    <%# ------------------------- header 영역 시작 ------------------------%>
+    <header>
+        <div class="header-container">
+            <div class="header1">
+                <div class="header_item1"></div>
+
+                <div class="header_item2">
+                    <% if(!email) { %>
+                    <form name="paging5">
+                        <a href="javascript:goPage5();"><img src="/img/content/img_login_kor.png" weight="70px"
+                                height="30px"></a>
+                    </form>
+                    <% } else { %>
+                    <form name="paging7">
+                        <a href="javascript:goPage7();"><img src="/img/content/img_logout_kor.png" weight="70px"
+                                height="30px"></a>
+                    </form>
+                    <% } %>
+                </div>
+
+                <div id="header_item3">
+                    <% if(!email) { %>
+                    <form name="paging6">
+                        <a href="javascript:goPage6();"><img src="/img/content/img_signup_kor.png" weight="100px"
+                                height="30px"></a>
+                    </form>
+                    <% } else { %>
+                    <form name="paging8">
+                        <a href="javascript:goPage8();"><img src="/img/content/img_myinfor_kor.png" weight="100px"
+                                height="30px"></a>
+                    </form>
+                    <% } %>
+                </div>
+
+
+            </div>
+
+
+            <div class="header2">
+                <form name="paging0">
+                    <center>
+                        <a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png"></a>
+                        <p>
+                    </center>
+                </form>
+
+            </div>
+        </div>
+    </header>
+
+
+    <%# ------------------------- header 영역 끝 ------------------------%>
+
+    <%# ------------------------- main 영역 시작 ------------------------%>
+    <main>
+        <div class="main_container">
+            <div class="main1">
+
+                <% if(!email) { %>
+                <ul>
+                    <form name="paging1">
+                        <li><a href="javascript:goPage1();">가이드</a></li>
+                    </form>
+                    <form name="paging2">
+                        <li><a href="javascript:goPage2();">조회</a></li>
+                    </form>
+                    <form name="paging3">
+                        <li><a href="javascript:goPage3();">환전</a></li>
+                    </form>
+                    <form name="paging4">
+                        <li><a href="javascript:goPage4();">이체</a></li>
+                    </form>
+
+                </ul>
+
+                <% } else { %>
+                <ul>
+                    <form name="paging1">
+                        <li><a href="javascript:goPage1();">가이드</a></li>
+                    </form>
+                    <form name="paging2">
+                        <li><a href="javascript:goPage2();">조회</a></li>
+                    </form>
+                    <form name="paging3">
+                        <li><a href="javascript:goPage3();">환전</a></li>
+                    </form>
+                    <form name="paging4">
+                        <li><a href="javascript:goPage4();">이체</a></li>
+                    </form>
+
+                </ul>
+                <% } %>
+
+            </div>
+
+            <%# ------------------------- main 영역 슬라이드 쇼 ------------------------%>
+
+            <% if(typeof flag != "undefined") { %>
+            <script>
+                // swal("<%= flag %>",
+                // {button:"확인",}).then((result)=>{if(result){
+                //         if(!window.location.hash) {
+                //             window.location = window.location + '#loaded';
+                //             window.location.reload();
+                //         }
+                // }})
+                if (!window.location.hash) {
+                    swal("<%= flag %>",
+                        { button: "확인", }).then((result) => {
+                            if (result) {
+                                if (!window.location.hash) {
+                                    window.location = window.location + '#loaded';
+                                    window.location.reload();
+                                }
+                            }
+                        })
+                }
+            </script>
+            <% } %>
+            <div class="main2">
+                <div class="main_item1">
+					<center>
+                    <div class="infor_block2">
+                        <div class="main_text">가이드</div>
+                    </div>
+                    <div class="infor_block"> <br>
+                        <font size=3>페이헬퍼의 사용방법을<br> 익혀보세요.</font>
+                    </div>
+
+                    <div class="infor_block2">
+                        <div class="main_text">조회</div>
+                    </div>
+                    <div class="infor_block"><br>
+                        <font size=3>페이헬퍼를 사용해 <br>화폐를 조회해보세요.</font>
+                    </div>
+                    </center>
+                </div>
+                <div class="main_item2">
+                    <center>
+                        <div class="slideshow-container">
+                            <center>
+                                <div class="mySlides fade">
+
+                                    <img src="/img/content/img_main1.png" width="700px" height="400px">
+
+                                </div>
+                            </center>
+                            <div class="mySlides fade">
+                                <img src="/img/content/img_main2.png" width="700px" height="400px">
+                            </div>
+
+                            <div class="mySlides fade">
+                                <img src="/img/content/img_main3.png" width="700px" height="400px">
+                            </div>
+
+
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+                            <br>
+
+                            <div style="text-align:center">
+                                <span class="dot" onclick="currentSlide(1)"></span>
+                                <span class="dot" onclick="currentSlide(2)"></span>
+                                <span class="dot" onclick="currentSlide(3)"></span>
+                            </div>
+
+                        </div>
+
+
+
+                </div>
+                <div class="main_item3">
+                <center>
+                    <div class="infor_block2">
+                        <div class="main_text">환전</div>
+                    </div>
+                    <div class="infor_block"> <br>
+                        <font size=3>페이헬퍼를 사용해<br> 화폐를 환전해보세요.</font>
+                    </div>
+
+                    <div class="infor_block2">
+                        <div class="main_text">이체</div>
+                    </div>
+                    <div class="infor_block"><br>
+                        <font size=3>페이헬퍼를 사용해 <br>화폐를 이체해보세요.</font>
+                    </div>
+                    </center>
+                </div>
+                </center>
+    </main>
+    <%# ----------------------main영역 끝 ------------------------ %>
+    <%# ----------------------footer영역 시작 ------------------------ %>
+    <footer class="footer">
+        <img src="/img/content/img_payhelperbig.png" width="100px" height="30px">
+        <img src="/img/content/img_producer.png">
+    </footer>
+    <%# ----------------------footer영역 끝 ------------------------ %>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage1() {
+            var f = document.paging1;
+            f.action = "/users/aboutPayHelper"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage2() {
+            var f = document.paging2;
+            f.action = "/users/lookup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage3() {
+            var f = document.paging3;
+            f.action = "/users/exchange"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage4() {
+            var f = document.paging4;
+            f.action = "/users/payment";
+            f.method = "get";
+            f.submit();
+        }
+        function goPage5() {
+            var f = document.paging5;
+            f.action = "/users/login"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage6() {
+            var f = document.paging6;
+            f.action = "/users/signup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage7() {
+            var f = document.paging7;
+            f.action = "/users/logout"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage8() {
+            var f = document.paging8;
+            f.action = "/users/myinfo"
+            f.method = "get"
+            f.submit();
+        }
+    </script>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>SignUp</title>
+	<link rel="stylesheet" type="text/css" href="/css/signup_style.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+	<% if(typeof flag1 != "undefined") { %>
+	<script>
+		swal("<%= flag1 %>")
+	</script>
+	<% } %>
+
+	<div class="id_sign">
+		<center>
+			<form name="paging0">
+				<a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png" weight="200px"
+						height="100px"></a><br>
+			</form>
+
+			<form action="/users/signup" method="post">
+				<h4>
+					<font size="5">회원가입
+				</h4>
+				<input type="email" name="email" placeholder="E-mail"style="height:25px;"><br>
+				<input type="password" name="password" placeholder="password"style="height:25px"><br>
+				<input type="text" name="accessKey" placeholder="accessKey"style="height:25px"><br>
+				<input type="password" name="secretKey" placeholder="secretKey"style="height:25px"><br>
+				<button id="signupBtn" input type="submit" class="signup_comm" value="SignUp"></button>
+			</form>
+
+			<form action="/users/login" method="get">
+				<font size="2" weight="normal" color="#6E6E6E"</font>계정이 있는 경우
+				<button id="loginBtn2" input type="submit" class= "login_comm2" value="Login"></button>
+			</form>
+			
+			<hr size="1px" width="300px" left="50%" right"50%" noshade>
+			<img src="/img/content/img_producer.png" width="300px height="150px">
+
+		</center>
+	</div>
+
+	<!-- 이미 계정이 있으신가요? <a href="/users/login">로그인</a> -->
+
+
+
+	<script type="text/javascript">
+		function goPage0() {
+			var f = document.paging0;
+			f.action = "/"
+			f.method = "get"
+			f.submit();
+		}
+	</script>
+
+</body>
+
+</html>

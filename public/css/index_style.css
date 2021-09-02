@@ -1,0 +1,208 @@
+.swal-button{
+    background-color: #EC7357;
+}
+
+.header-container{
+	display:grid;
+}
+
+.header1 {
+	display:grid;
+	grid-template-columns: 90% 5% 5%;
+	min-height:30px;
+	
+}
+
+.header_item1{
+	grid-column:1/2;
+	min-width: 1300px;
+}
+.header_item2{
+	grid-column:2/3;
+
+	text-align: center;
+}
+.header_item3{
+	grid-column:3/4; 
+
+	text-align: center;
+}
+
+.header2 {
+	display : grid;
+	min-width:1500px;
+	min-height : 70px;
+	text-align:center;
+	/*background: url(/img/content/background12.jpg) no-repeat;*/
+	background: url(/img/content/header.jpg) no-repeat;
+	background-size :cover;
+}
+
+.main1{
+	background-color : #EC7357;
+	min-width:1500px;
+	
+}
+
+.main2{
+	display:grid;
+	grid-template-columns : auto 865px auto;
+	min-height:510px;
+	min-width:1500px;	
+	
+}
+.main_item1{
+	grid-column:1/2;	
+	min-height:510px;
+	
+
+	
+}
+
+.main_item2{
+	grid-column:2/3;
+	min-width:865px;
+	
+	
+}
+.main_item3{
+	grid-column:3/4;
+	
+	
+}
+.footer{
+	min-width:1500px;
+	
+}
+.mySlides {display: none}
+img {vertical-align : middle;}
+
+/* 슬라이드 쇼 위치 및 크기 설정 */
+.slideshow-container {
+	min-height: 400px;
+  	max-width: 700px;
+  	position: relative;
+  	margin-top : 30px;
+  	margin-bottom : 30px;
+  	/*margin-left : 400px;*/
+
+  	  	
+}
+
+/* <> 버튼 양식 설정 */
+.prev{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 25px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 25px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* > 버튼 우측 정렬 */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* 아래 원 버튼 3개 양식 지정 */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* 현재 표시하고 있는 슬라이드 위치의 원 색 지정*/
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* 슬라이드 애니메이션 효과 */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.main_text{
+	font-size: 18px;
+	font-weight : bold;
+	color : white;
+	/*text-align : center;*/
+	
+
+}
+.main_text2{
+	font-size: 17px;
+	font-weight : bold;
+	/*text-align : center;*/
+	display : inline-block;
+	
+
+}
+.infor_block{
+	position : relative;
+	width : 200px;
+	height : 100px;
+	
+	background-color : #F2F2F2;
+	display : block;
+	
+	text-align : center;
+	border-radius : 0px 0px 10px 10px;
+}
+
+.infor_block2{
+	position : relative;
+	width : 200px;
+	height : 30px;
+	margin-top : 80px;
+	padding-top : 5px;
+	background-color : #754F44;
+	display : block;	
+	border-radius : 10px 10px 0px 0px;
+	text-align : center;
+}

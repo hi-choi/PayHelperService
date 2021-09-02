@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/my.style.css">
+    <link rel="stylesheet" type="text/css" href="/css/payment_style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        main {
+            position: relative;
+            margin: 100px min-height: 430px;
+        }
+        body {
+        }
+    </style>
+</head>
+
+<body>
+    <%# ------------------------- header 영역 시작 ------------------------%>
+    <header>
+        <div class="header-container">
+            <div class="header1">
+                <div class="header_item1"></div>
+
+                <div class="header_item2">
+                    <% if(!email) { %>
+                    <form name="paging5">
+                        <a href="javascript:goPage5();"><img src="/img/content/img_login_kor.png" weight="70px"
+                                height="30px"></a>
+                    </form>
+                    <% } else { %>
+                    <form name="paging7">
+                        <a href="javascript:goPage7();"><img src="/img/content/img_logout_kor.png" weight="70px"
+                                height="30px"></a>
+                    </form>
+                    <% } %>
+                </div>
+
+                <div id="header_item3">
+                    <% if(!email) { %>
+                    <form name="paging6">
+                        <a href="javascript:goPage6();"><img src="/img/content/img_signup_kor.png" weight="100px"
+                                height="30px"></a>
+                    </form>
+                    <% } else { %>
+                    <form name="paging8">
+                        <a href="javascript:goPage8();"><img src="/img/content/img_myinfor_kor.png" weight="100px"
+                                height="30px"></a>
+                    </form>
+                    <% } %>
+                </div>
+
+
+            </div>
+
+
+            <div class="header2">
+                <form name="paging0">
+                    <a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png" margin-tom="-10px"></a>
+                    <p>
+                </form>
+
+            </div>
+        </div>
+    </header>
+
+
+    <%# ------------------------- header 영역 끝 ------------------------%>
+
+    <%# ------------------------- main 영역 시작 ------------------------%>
+    <main>
+        <div class="main_container">
+            <div class="main1">
+
+                <% if(!email) { %>
+                <ul>
+                    <form name="paging1">
+                        <li><a href="javascript:goPage1();">가이드</a></li>
+                    </form>
+                    <form name="paging2">
+                        <li><a href="javascript:goPage2();">조회</a></li>
+                    </form>
+                    <form name="paging3">
+                        <li><a href="javascript:goPage3();">환전</a></li>
+                    </form>
+                    <form name="paging4">
+                        <li><a href="javascript:goPage4();">이체</a></li>
+                    </form>
+
+                </ul>
+
+                <% } else { %>
+                <ul>
+                    <form name="paging1">
+                        <li><a href="javascript:goPage1();">가이드</a></li>
+                    </form>
+                    <form name="paging2">
+                        <li><a href="javascript:goPage2();">조회</a></li>
+                    </form>
+                    <form name="paging3">
+                        <li><a href="javascript:goPage3();">환전</a></li>
+                    </form>
+                    <form name="paging4">
+                        <li><a href="javascript:goPage4();">이체</a></li>
+                    </form>
+
+                </ul>
+                <% } %>
+
+            </div>
+
+            <div class="main2">
+                <div class="main_item1">
+					<h4>
+                    <center>
+                        <font size=5> &nbsp;</font>
+                        </center>
+                    </h4>
+                    <hr size="5px" left="50%" right"50%" noshade>
+                    </hr>
+                </div>
+                <div class="main_item2">
+                    <div class="infor_block2">
+                        <font size=5> 이체 </font>
+                    </div>
+                    <div class="infor_block3">
+                        <font size=5> 가상화폐 이체</font>
+                    </div>
+
+                    <div class="infor_block">
+                        <center>
+                            <br><a href="#"><img src="/img/content/circle.png" onclick="swal('제3자에게 자신의 가상화폐를 이체할 수 있습니다.')" class="circle"></a><br>
+                            <font size=4> 가상화폐 -> 가상화폐</font><br>
+                            <button input type="submit" class="getBtn2" id="payCoin" value="암호화폐이체요청"></button><br>
+                        </center>
+                    </div>
+                    <div class="infor_block1">
+                        <center>
+                            <br><a href="#"><img src="/img/content/circle.png" onclick="swal('제3자에게 자신의 가상화폐를 원화로 이체할 수 있습니다.')" class="circle"></a><br>
+                            <font size=4> 가상화폐 -> 원화</font><br>
+                            <button input type="submit" class="getBtn2" id="payCoin2" value="암호화폐이체요청"></button><br>
+                        </center>
+                    </div>
+
+                    <div class="infor_block3">
+                        <font size=5> 원화 이체</font>
+                    </div>
+                    <div class="infor_block5">
+                        <center>
+                            <br><a href="#"><img src="/img/content/circle.png" onclick="swal('제3자에게 자신의 원화를 가상화폐로 이체할 수 있습니다.')" class="circle"></a><br>
+                            <font size=4> 원화 -> 가상화폐</font><br>
+                            <button input type="submit" class="getBtn" id="payKor2" value="현금이체"></button><br>
+                        </center>
+                    </div>
+                    <div class="infor_block6">
+                        <center>
+                            <br><a href="#"><img src="/img/content/circle.png" onclick="swal('제3자에게 자신의 원화를 이체할 수 있습니다.')" class="circle"></a><br>
+                            <font size=4> 원화 -> 원화</font><br>
+                            <button input type="submit" class="getBtn" id="payKor" value="현금이체"></button><br>
+
+                        </center>
+                    </div>
+
+                    <form name="paging9">
+                    </form>
+
+                    <form name="paging10">
+                    </form>
+
+                    <form name="paging11">
+                    </form>
+
+                    <form name="paging12">
+                    </form>
+
+                    <form name="paging13">
+                    </form>
+
+                    <form name="paging14">
+                    </form>
+                </div>
+                
+                <div class="main_item3">
+
+                    <h4>
+                    <center>
+                        <font size=5> Log</font>
+                        </center>
+                    </h4>
+                    <hr size="5px" left="50%" right"50%" noshade>
+                    </hr>
+
+                    <br>
+                    <div class=main_text2> &nbsp;&nbsp;미이체내역</div>
+                    <button input type="submit" class="getBtn3" id="cancelCoin" value="조회"></button><br>
+                    <!-- 여기 버튼은 바꾸시지 마세요ㅠㅠ(에러가 발생하네요ㅠ) -->
+                    <!-- <input type="submit" id="cancelCoin" value="조회"><br> -->
+                    <% if(typeof flag1 != "undefined") { %>
+                    <!-- <h1>
+                        <font size=3><%=flag1 %>
+                    </h1> -->
+                    <script>
+                        swal("<%= flag1 %>")
+                    </script>
+                    <% } %>
+
+                    <% if(typeof flag2 != "undefined") {%>
+                    <% flag2.forEach(function(val) { %>
+                    <div>
+                    <form action="/users/cancelCoin" method="post">
+                        <input type="text" name="id" value="<%= val %>">
+                        <input type="submit" class="cancel" value="이체취소">
+                    </form>
+                    </div>
+                    <% }) %>
+                    <% } %>
+
+                    <% if(typeof flag3 != "undefined") { %>
+                    <!-- <h1>
+                        <font size=3><%=flag3 %>
+                    </h1> -->
+                    <script>
+                        swal("<%= flag3 %>")
+                    </script>
+                    <% } %>
+
+                    <% if(typeof flag4 != "undefined") { %>
+                    <!-- <h1>
+                        <font size=3><%=flag4 %>
+                    </h1> -->
+                    <script>
+                        swal("<%= flag4 %>")
+                    </script>
+                    <% } %>
+
+                    <% if(typeof flag5 != "undefined") { %>
+                    <div>
+                    <form action="/users/cancelCoin" method="post">
+                        <input type="text" name="id" value="<%= flag5 %>">
+                        <input type="submit" class="cancel" value="이체취소">
+                    </form>
+                    </div>
+                    <% } %>
+
+                    <% if(typeof flag6 != "undefined") { %>
+                    <% flag6.forEach(function(val) { %>
+                    <div>
+                    <form action="/users/cancelCoin" method="post">
+                        <input type="text" name="id" value="<%= val %>">
+                        <input type="submit" class="cancel" value="이체취소">
+                    </form>
+                    </div>
+                    <% }) %>
+                    <% } %>
+
+                    <% if(typeof flag7 != "undefined") { %>
+                    <!-- <h1>
+                        <font size=3><%=flag7 %>
+                    </h1> -->
+                    <script>
+                        swal("<%= flag7 %>")
+                    </script>
+                    <% } %>
+
+                    <% if(typeof flag10 != "undefined") { %>
+                    <!-- <h1><font size=3><%=flag10 %></h1> -->
+                    <script>
+                        if ("<%= flag10 %>" == "출금완료") {
+                            swal("<%= flag10 %>",
+                            {button:"확인",}).then((result)=>{if(result){
+                            $.ajax({
+                                url: '/users/PayDepositKor',
+                                type: 'POST',
+                                headers: {
+                                    // 'x-access-token' : jwtToken     // 필요한가?
+                                },
+                                data: {
+
+                                },
+                                success: function (data) {
+                                    console.log(data);
+                                    if (data == 1) {
+                                        swal("입금완료");
+                                        // 	//ispay 0->ispay 1 API 구현
+                                        // 	$.ajax({
+                                        // 		url:'http://localhost:3000/pay/isPay',
+                                        // 		type : 'POST',
+                                        // 		headers : {
+                                        // 			'x-access-token' : jwtToken
+                                        // 		},
+                                        // 		success:function(datas){
+                                        // 			console.log(datas);
+                                        // 			alert('결제내역이 승인되었습니다.');	
+                                        // 			window.location = "/transaction/enterTransaction"
+                                        // 		}
+                                        // 	})
+                                        // }
+                                        // else {
+                                        // 	alert('결제가 미승인되었습니다')
+                                    } else {
+                                        swal("입금실패");
+                                    }
+                                }
+                            })
+                            }})
+                        } else {
+                            swal("<%= flag10 %>")
+                        }
+                    </script>
+                    <% } %>
+
+                    <% if(typeof flag11 != "undefined" || typeof flag12 != "undefined") { %>
+                    <script>
+                        swal("현금", "<%= flag11 %>",
+                        {button:"확인",}).then((result)=>{if(result){
+                        swal("가상화폐", "<%= flag12 %>")}})
+                    </script>
+                    <% } %>
+
+                    <% if(typeof flag13 != "undefined" || typeof flag14 != "undefined") { %>
+                        <script>
+                            swal("가상화폐", "<%= flag13 %>",
+                            {button:"확인",}).then((result)=>{if(result){
+                            swal("현금", "<%= flag14 %>")}})
+                        </script>
+                    <% } %>
+
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+    <%# ----------------------main영역 끝 ------------------------ %>
+
+
+    <%# ----------------------footer영역 시작 ------------------------ %>
+    <footer class="footer">
+        <img src="/img/content/img_payhelperbig.png" width="100px" height="30px">
+        <img src="/img/content/img_producer.png">
+    </footer>
+    <%# ----------------------footer영역 끝 ------------------------ %>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script>
+        // 현금 -> 현금 결제
+        $("#payKor").click(function () {
+            $.ajax({
+                url: '/users/PayWithdrawKor',
+                type: 'POST',
+                data: {},
+                success: function (data) {
+                    console.log(data);
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "현금 이체를 하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else if (data == 3) {
+                        goPage12();
+                    }
+                }
+            })
+        })
+
+        // 현금 -> 암호화폐 결제
+        $("#payKor2").click(function () {
+            $.ajax({
+                url: '/users/payKor2',
+                type: 'POST',
+                data: {},
+                success: function (data) {
+                    console.log(data);
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "현금 이체를 하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else if (data == 3) {
+                        goPage13()
+                    }
+                }
+            })
+        })
+
+        // 암호화폐 -> 암호화폐 결제
+        $("#payCoin").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/users/payCoin",
+                data: {},
+                success: function (data) {
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "코인 지갑을 사용하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else if (data == 3) {
+                        goPage9();
+                    }
+                }
+            })
+        })
+
+        // 암호화폐 -> 현금 결제
+        $("#payCoin2").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/users/payCoin2",
+                data: {},
+                success: function (data) {
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "코인 지갑을 사용하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else if (data == 3) {
+                        goPage14();
+                    } else if (data == 4) {
+                        swal("Warning", "현금 이체를 하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    }
+                }
+            })
+        })
+
+        // $("#lookupPayCoin").click(function() {
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/users/lookupPayCoin",
+        //         data: {},
+        //         success: function (data) {
+        //             if(data == 1) {
+        //                 alert("로그인 해주세요.")
+        //                 goPage5();
+        //             } else if(data == 2) {
+        //                 alert("코인지갑을 사용하시려면 access_token을 발급 받으세요.")
+        //                 goPage8();
+        //             } else if(data == 3) {
+        //                 goPage10();
+        //             } else {
+        //                 //alert(JSON.stringify(data))
+        //                 alert(data);
+        //             }
+        //         }
+        //     })
+        // })
+
+        $("#cancelCoin").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/users/cancelCoin2",
+                data: {},
+                success: function (data) {
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "코인 지갑을 사용하시려면 access_token을 발급받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else if (data == 3) {
+                        goPage11();
+                    } else {
+                        //alert(JSON.stringify(data))
+                        swal(data);
+                    }
+                }
+            })
+        })
+    </script>
+
+ <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage1() {
+            var f = document.paging1;
+            f.action = "/users/aboutPayHelper"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage2() {
+            var f = document.paging2;
+            f.action = "/users/lookup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage3() {
+            var f = document.paging3;
+            f.action = "/users/exchange"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage4() {
+            var f = document.paging4;
+            f.action = "/users/payment";
+            f.method = "get";
+            f.submit();
+        }
+        function goPage5() {
+            var f = document.paging5;
+            f.action = "/users/login"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage6() {
+            var f = document.paging6;
+            f.action = "/users/signup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage7() {
+            var f = document.paging7;
+            f.action = "/users/logout"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage8() {
+            var f = document.paging8;
+            f.action = "/users/myinfo"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage9() {
+            var f = document.paging9;
+            f.action = "/users/payCoin"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage10() {
+            var f = document.paging10;
+            f.action = "/users/lookupPayCoin"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage11() {
+            var f = document.paging11;
+            f.action = "/users/cancelCoin2"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage12() {
+            var f = document.paging12;
+            f.action = "/users/payKor"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage13() {
+            var f = document.paging13;
+            f.action = "/users/payKor2"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage14() {
+            var f = document.paging14;
+            f.action = "/users/payCoin2"
+            f.method = "get"
+            f.submit();
+        }
+    </script>
+
+
+</body>
+
+</html>

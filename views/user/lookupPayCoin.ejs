@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>lookupPayCoin</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/my.style.css">
+</head>
+
+<body>
+    <center>
+        <form name="paging0">
+            <a href="javascript:goPage0();"><img src="/img/content/payhelperlogo.png"></a><br>
+        </form>
+
+        <form action="/users/lookupPayCoin" method="post">
+            <h4>미결제내역조회</h4>
+            <select name="cryptocurrency">
+                <option value="zil">질리카</option>
+                <option value="trx">트론</option>
+            </select><br>
+            <input type="submit" value="미결제내역조회"><br>
+        </form>
+    </center>
+
+    <footer class="footer">
+        <p> Producer © 한국항공대 - 소프트웨어학과(이태강,이한범,서한나)</p>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script>
+        
+    </script>
+
+    <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+    </script>
+</body>
+
+</html>

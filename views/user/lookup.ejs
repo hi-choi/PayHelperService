@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lookup</title>
+    <link rel="stylesheet" type="text/css" href="/css/my.style.css">
+    <link rel="stylesheet" type="text/css" href="/css/lookup_style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        main {
+            position: relative;
+            margin: 100px min-height: 430px;
+        }
+
+        table {
+            border-collapse: collapse;
+
+        }
+
+        th {
+            text-align: center;
+            height: 40px;
+            background-color: #F2F2F2;
+
+        }
+
+        tr {
+            background-color: white;
+            height: 30px;
+
+        }
+
+        td {
+            background-color: white;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <%# ------------------------- header 영역 시작 ------------------------%>
+    <header>
+        <div class="header-container">
+            <div class="header1">
+                <div class="header_item1"></div>
+
+                <div class="header_item2">
+                    <% if(!email) { %>
+                    <form name="paging5">
+                        <a href="javascript:goPage5();"><img src="/img/content/img_login_kor.png" weight="70px"
+                                height="30px"></a>
+                    </form>
+                    <% } else { %>
+                    <form name="paging7">
+                        <a href="javascript:goPage7();"><img src="/img/content/img_logout_kor.png" weight="70px"
+                                height="30px"></a>
+                    </form>
+                    <% } %>
+                </div>
+
+                <div id="header_item3">
+                    <% if(!email) { %>
+                    <form name="paging6">
+                        <a href="javascript:goPage6();"><img src="/img/content/img_signup_kor.png" weight="100px"
+                                height="30px"></a>
+                    </form>
+                    <% } else { %>
+                    <form name="paging8">
+                        <a href="javascript:goPage8();"><img src="/img/content/img_myinfor_kor.png" weight="100px"
+                                height="30px"></a>
+                    </form>
+                    <% } %>
+                </div>
+
+
+            </div>
+
+
+            <div class="header2">
+                <form name="paging0">
+                    <a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png" margin-tom="-10px"></a>
+                    <p>
+                </form>
+
+            </div>
+        </div>
+    </header>
+
+
+    <%# ------------------------- header 영역 끝 ------------------------%>
+
+    <%# ------------------------- main 영역 시작 ------------------------%>
+    <main>
+        <div class="main_container">
+            <div class="main1">
+
+                <% if(!email) { %>
+                <ul>
+                    <form name="paging1">
+                        <li><a href="javascript:goPage1();">가이드</a></li>
+                    </form>
+                    <form name="paging2">
+                        <li><a href="javascript:goPage2();">조회</a></li>
+                    </form>
+                    <form name="paging3">
+                        <li><a href="javascript:goPage3();">환전</a></li>
+                    </form>
+                    <form name="paging4">
+                        <li><a href="javascript:goPage4();">이체</a></li>
+                    </form>
+
+                </ul>
+
+                <% } else { %>
+                <ul>
+                    <form name="paging1">
+                        <li><a href="javascript:goPage1();">가이드</a></li>
+                    </form>
+                    <form name="paging2">
+                        <li><a href="javascript:goPage2();">조회</a></li>
+                    </form>
+                    <form name="paging3">
+                        <li><a href="javascript:goPage3();">환전</a></li>
+                    </form>
+                    <form name="paging4">
+                        <li><a href="javascript:goPage4();">이체</a></li>
+                    </form>
+
+                </ul>
+                <% } %>
+
+            </div>
+            <div class="main2">
+                <div class="main_item1">
+                     <center>
+       				 <h4>
+                    <font size=5> 조회</font>
+                    </h4>
+                    <hr size="5px" left="50%" right"50%" noshade padding-right="10%">
+                    </hr>
+
+                        <button input type="submit" class="getBtn" id="johwe2">계좌 조회</button>
+
+                        <button input type="submit" class="getBtn2" id="johwe">가상화폐 조회</button><br>
+
+                    </center>
+
+
+                </div>
+                <div class="main_item2">
+                    <div class="infor_block2">
+                        <font size=5> 조회 </font>
+                    </div>
+                    <div class="infor_block3">
+                        <font size=5> 가상화폐</font>
+                    </div>
+                    <div class="infor_block4">
+                        <font size=5> 원화 </font>
+                    </div>
+
+                    <table id='tableCoin' class="tableCoin" border="1">
+                        <th> 가상화폐 </th>
+                        <th> 보유금액 </th>
+                        <tr>
+                            <td width="30%"> ZIL </td>
+                            <td width="70%"> </td>
+
+                        </tr>
+                        <tr>
+                            <td width="30%"> TRX </td>
+                            <td width="70%"> </td>
+                        </tr>
+                    </table>
+
+                    <br>
+
+                    <table id='tableWon' class="tableWon" border="1">
+                        <th> 원화 </th>
+                        <th> 보유금액 </th>
+                        <tr>
+                            <td width="30%" text-align="center"> 신한 </td>
+                            <td width="70%"> </td>
+                        </tr>
+                        <tr>
+                            <td width="30%" text-align="center"> 국민 </td>
+                            <td width="70%"> </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="main_item3">
+                 <h4><center><font size=5> &nbsp;</font></center></h4>
+                    <hr size="5px" left="50%" right"50%" noshade padding-right="10%">
+                    </hr></div>
+                
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <%# ----------------------main영역 끝 ------------------------ %>
+    <%# ----------------------footer영역 시작 ------------------------ %>
+    <footer class="footer">
+        <img src="/img/content/img_payhelperbig.png" width="100px" height="30px">
+        <img src="/img/content/img_producer.png">
+    </footer>
+    <%# ----------------------footer영역 끝 ------------------------ %>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script>
+        // 인증 토큰 갖고 오는 거 구현해야 됨
+        $("#johwe2").click(function () {
+            var tableWon = document.getElementById("tableWon");
+            $.ajax({
+                url: '/users/lookup',
+                type: 'POST',
+                data: {},
+                success: function (data) {
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "계좌를 조회하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else {
+                        // swal(JSON.stringify(data))
+                        $.ajax({
+                            type: "POST",
+                            url: "/users/lookup_coin",
+                            data: {},
+                            success: function (data) {
+
+                                tableWon.rows[1].cells[1].innerHTML = data.krw;
+                            }
+                        })
+
+                        tableWon.rows[2].cells[1].innerHTML = data//JSON.stringify(data); 
+                    }
+                }
+            })
+        });
+        $("#johwe").click(function () {
+            var tableCoin = document.getElementById("tableCoin");
+            $.ajax({
+                type: "POST",
+                url: "/users/lookup_coin",
+                data: {},
+                success: function (data) {
+                    if (data == 1) {
+                        swal("Warning", "로그인 해주세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage5();
+                                }
+                            })
+                    } else if (data == 2) {
+                        swal("Warning", "가상화폐를 조회하시려면 access_token을 발급 받으세요.",
+                            { button: "확인", }).then((result) => {
+                                if (result) {
+                                    goPage8();
+                                }
+                            })
+                    } else {
+                        //swal(JSON.stringify(data))
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/users/lookup_coin",
+                            data: {},
+                            success: function (data) {
+                                // var jArray = new Array();
+                                // jArray.add();
+                                console.log("모든 토큰: " + JSON.stringify(data));
+                                // var aa = JSON.parse(data);
+                                // var bb = JSON.parse
+                                tableCoin.rows[1].cells[1].innerHTML = data.zil;
+                            }
+                        })
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/users/lookup_coin",
+                            data: {},
+                            success: function (data) {
+
+                                tableCoin.rows[2].cells[1].innerHTML = data.trx;
+                            }
+                        })
+
+                    }
+                }
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage1() {
+            var f = document.paging1;
+            f.action = "/users/aboutPayHelper"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage2() {
+            var f = document.paging2;
+            f.action = "/users/lookup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage3() {
+            var f = document.paging3;
+            f.action = "/users/exchange"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage4() {
+            var f = document.paging4;
+            f.action = "/users/payment";
+            f.method = "get";
+            f.submit();
+        }
+        function goPage5() {
+            var f = document.paging5;
+            f.action = "/users/login"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage6() {
+            var f = document.paging6;
+            f.action = "/users/signup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage7() {
+            var f = document.paging7;
+            f.action = "/users/logout"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage8() {
+            var f = document.paging8;
+            f.action = "/users/myinfo"
+            f.method = "get"
+            f.submit();
+        }
+    </script>
+
+
+</body>
+
+</html>

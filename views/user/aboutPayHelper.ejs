@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AboutPayHelper</title>
+	<link rel="stylesheet" type="text/css" href="/css/my.style.css">
+  	<link rel="stylesheet" type="text/css" href="/css/about_style.css">
+	<style>
+
+		main {
+		position:relative;
+		margin: 100px
+		min-height: 430px;	
+		}		
+	</style>
+</head>
+
+<body>
+<%# ------------------------- header 영역 시작 ------------------------%>
+	<header>
+	<div class="header-container">
+	<div class="header1">
+	<div class="header_item1"></div>
+		
+	<div class="header_item2">
+	<% if(!email) { %>
+	
+	<form name="paging5">		
+            <a href="javascript:goPage5();"><img src="/img/content/img_login_kor.png" weight="70px" height="30px"></a>
+    </form>   
+    <% } else { %>    
+	<form name="paging7">
+           <a href="javascript:goPage7();"><img src="/img/content/img_logout_kor.png" weight="70px" height="30px"></a>
+    </form>   
+    <% } %>
+   
+    </div>
+    
+	<div id="header_item3">
+	<% if(!email) { %>
+	<form name="paging6">		
+            <a href="javascript:goPage6();"><img src="/img/content/img_signup_kor.png" weight="100px" height="30px"></a>
+    </form>    
+    <% } else { %>    
+	<form name="paging8">
+           <a href="javascript:goPage8();"><img src="/img/content/img_myinfor_kor.png" weight="100px" height="30px"></a>
+    </form>  
+    <% } %>
+	</div>
+	
+	
+	</div>
+	
+	
+	<div class="header2">
+	 <form name="paging0">
+            <a href="javascript:goPage0();"><img src="/img/content/img_payhelperbig.png"></a>
+            <p>
+            
+        </form>
+
+	</div>
+	</div>
+	</header>
+
+	
+<%# ------------------------- header 영역 끝 ------------------------%>
+
+<%# ------------------------- main 영역 시작 ------------------------%>
+	 <main>
+	 <div class="main_container">
+	 	<div class="main1">
+	 	
+	 	
+	 	 <% if(!email) { %>
+    <ul>
+        <form name="paging1">
+            <li><a href="javascript:goPage1();">가이드</a></li>
+        </form>
+        <form name="paging2">
+            <li><a href="javascript:goPage2();">조회</a></li>
+        </form>
+        <form name="paging3">
+            <li><a href="javascript:goPage3();">환전</a></li>
+        </form>
+        <form name="paging4">
+            <li><a href="javascript:goPage4();">이체</a></li>
+        </form>
+        
+    </ul>
+
+    <% } else { %>
+    <ul>
+        <form name="paging1">
+            <li><a href="javascript:goPage1();">가이드</a></li>
+        </form>
+        <form name="paging2">
+            <li><a href="javascript:goPage2();">조회</a></li>
+        </form>
+        <form name="paging3">
+            <li><a href="javascript:goPage3();">환전</a></li>
+        </form>
+        <form name="paging4">
+            <li><a href="javascript:goPage4();">이체</a></li>
+        </form>
+        
+    </ul>  
+    <% } %>
+	 	
+	 	</div>
+	 
+	 	<div class="main2">
+	
+	 		<div class="main_item1"><br>
+	 		<div class="main_text2">가이드</div>
+	 		<hr size="5px"  left="50%" right"50%" noshade><br>
+	 		<div class="sub_text">1. 회원가입<br></div>
+	 		<div class="sub_text">2. 로그인<br></div>
+	 		<div class="sub_text">3. 가상화폐 토큰 발급받기<br></div>
+	 		<div class="sub_text">4. 원화 토큰 발급받기<br></div>
+	 		</div>
+	
+	 		<div class="main_item2"><br>
+	 		
+	 		
+	 		<div class="main_text2">1. 회원가입 </div>
+	 		<hr size="5px"  left="50%" right"50%" noshade><br>
+	 		<div class="sub_text2">
+	 		페이헬퍼를 사용하기 위해서는 페이헬퍼 계정이 있어야만 합니다.<br>
+	 		우측 상단에 <font class="sub_text3"><font color="#FF0000">회원</font><font weight="bold" color="#C00000">가입 </font></font>버튼을 통해 회원가입을 하실 수 있습니다.<br>
+	 		<br>
+	 		<img src="/img/content/img_signup.png" weight="100px" height="300px"><br>
+	 	<br>
+	 		사용할 E-mail 주소, password, Access key, Secret Key를 입력해주세요.<br>
+	 		Access Key와 Secret Key는 코빗 홈페이지에서 발급받을 수 있습니다. <br><font class="sub_text3"><font color="#FF0000">SignUp</font></font> 버튼을 눌러주시면 회원가입이 완료됩니다.<br>
+	 		만약 계정이 있으시다면 바로 <font class="sub_text3"><font color="#C00000">Login</font></font> 버튼을 눌러 로그인을 하시면 됩니다.<br>
+	 		</div>
+	 		
+	 		<div class="main_text2">2. 로그인 </div>
+	 		<hr size="5px"  left="50%" right"50%" noshade><br>
+	 		<div class="sub_text2"><br>
+	 		페이헬퍼 계정이 있으시다면
+	 		우측 상단에 <font class="sub_text3"><font color="#FF0000">로그</font><font weight="bold" color="#C00000">인 </font></font>버튼을 통해 로그인을 하실 수 있습니다.<br>
+	 		<br>
+	 		<img src="/img/content/img_login.png" weight="100px" height="300px"><br><br>
+	 		본인의 E-mail 주소와 password를 입력하신 후 <font class="sub_text3"><font color="#FF0000">Login</font></font> 버튼을 눌러주시면 로그인이 완료됩니다.<br>
+	 		만약 계정이 없으시다면 바로 <font class="sub_text3"><font color="#C00000">SignUp</font></font> 버튼을 눌러 회원가입을 하시면 됩니다.<br>	 		
+	 		</div>
+	 		<div class="main_text2">3. 가상화폐 토큰 발급받기 </div>
+	 		<hr size="5px"  left="50%" right"50%" noshade><br>
+	 		<div class="sub_text2"><br>
+	 		가상화폐를 사용하기 위해서는 가상화폐 토큰을 가져와야합니다.<br>
+	 		내정보에서 가상화폐 토큰 가져오기를 클릭해주세요.<br>
+	 		가상화폐 토큰받는 화면으로 넘어갔다면 Get버튼을 클릭해 토큰을 받아주세요.
+	 		</div>
+	 		<div class="main_text2">4. 원화 토큰 발급받기 </div>
+	 		<hr size="5px"  left="50%" right"50%" noshade><br>
+	 	<div class="sub_text2"><br>
+	 		원화를 사용하기 위해서는 원화 토큰을 가져와야합니다. <br>
+	 		내정보에서 원화 토큰 가져오기를 클릭해주세요.<br>
+	 		버튼을 클릭하면 인증 화면으로 넘어갑니다.<br>
+	 		
+	 		</div>
+	 		</div>
+	 	<div class="main_item3"><br>
+	 	<div class="main_text2">참고사항</div>
+	 		<hr size="5px"  left="50%" right"50%" noshade><br>
+	 	<br>
+	 	
+	 	</div>
+	 	
+	
+	 	
+	 	</div>
+	 </div>
+	</main>
+<%# ----------------------main영역 끝 ------------------------ %>   
+<%# ----------------------footer영역 시작 ------------------------ %>
+    <footer class="footer">
+	<img src="/img/content/img_payhelperbig.png"width="100px"height="30px">
+	<img src="/img/content/img_producer.png">
+	</footer>
+<%# ----------------------footer영역 끝 ------------------------ %>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script type="text/javascript">
+        function goPage0() {
+            var f = document.paging0;
+            f.action = "/"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage1() {
+            var f = document.paging1;
+            f.action = "/users/aboutPayHelper"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage2() {
+            var f = document.paging2;
+            f.action = "/users/lookup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage3() {
+            var f = document.paging3;
+            f.action = "/users/exchange"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage4() {
+            var f = document.paging4;
+            f.action = "/users/payment";
+            f.method = "get";
+            f.submit();
+        }
+        function goPage5() {
+            var f = document.paging5;
+            f.action = "/users/login"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage6() {
+            var f = document.paging6;
+            f.action = "/users/signup"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage7() {
+            var f = document.paging7;
+            f.action = "/users/logout"
+            f.method = "get"
+            f.submit();
+        }
+        function goPage8() {
+            var f = document.paging8;
+            f.action = "/users/myinfo"
+            f.method = "get"
+            f.submit();
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+.swal-button{
+	background-color: #EC7357;
+}
+.id_sign{
+
+	height: 500px;
+	width : 400px;
+	padding-top : 50px;
+	padding-bottom : 30px;
+	border-radius : 10%;	
+	position : absolute;
+	top : 0;
+	bottom : 0;
+	left : 0;
+	right : 0;
+	margin : auto;	
+	border : 1px solid;
+
+}
+input[type="email"]{
+
+	border : 2px solid;
+
+}
+input[type="email"]:hover{
+	background : #FFDAB9;
+}
+input[type="password"]{
+	border : 2px solid;
+}
+input[type="password"]:hover{
+	background : #FFDAB9;
+}
+input[type="text"]{
+
+	border : 2px solid;
+
+}
+input[type="text"]:hover{
+	background : #FFDAB9;
+}
+.signup_comm{
+	display:block;
+	width:200px;
+	height:30px;
+	margin-top:20px;
+	margin-bottom:0px;
+	font-size:15px;
+	text-align:center;
+	color:#fff;
+	background:#754F44;
+	border-radius : 10px;
+}
+	
+.signup_comm:before{
+	display:inline-block;
+	vertical-align:middle;
+	content:'SignUp';
+	border-radius : 10px;
+	
+}
+.login_comm2{
+	display:block;
+	width:200px;
+	height:30px;
+	margin-top:10px;
+	margin-bottom:20px;
+	font-size:15px;
+	text-align:center;
+	color:#fff;
+	background:#FF0000;
+	border-radius : 10px;
+}
+	
+.login_comm2:before{
+	display:inline-block;
+	vertical-align:middle;
+	border-radius : 10px;
+	content:'Login';
+	border-radius : 10px;
+	
+}
